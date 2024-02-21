@@ -7,7 +7,7 @@ public class ReferenceManager : MonoBehaviour
 
     public static ReferenceManager Instance { get; private set; }
 
-
+    [Header("UI")]
     public GameObject MenuUI;
     public GameObject RegularModeUI;
     public GameObject ChallengeModeUI;

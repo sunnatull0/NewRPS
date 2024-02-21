@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class EventSubscriber : MonoBehaviour
 {
-    
+
     private void Start()
     {
         // UI.
-        EventManager.OnStateChangedToMenu += UIManager.SwitchToMenu;
-        EventManager.OnStateChangedToRegularMode += UIManager.SwitchToRegularMode;
-        EventManager.OnStateChangedToChallengeMode += UIManager.SwitchToChallengeMode;
+        EventManager.OnGameModeStateChangedToMenu += UIManager.SwitchToMenu;
+        EventManager.OnGameModeStateChangedToRegularMode += UIManager.SwitchToRegularMode;
+        EventManager.OnGameModeStateChangedToChallengeMode += UIManager.SwitchToChallengeMode;
+
+        // RPS.
+        EventManager.OnLogicStateChangedToWaitingToStart += GameLogic.Instance.ResetTimer;
+        EventManager.OnLogicStateChangedToPlaying += RPSManager.Instance.CreateRPS;
     }
 
 }

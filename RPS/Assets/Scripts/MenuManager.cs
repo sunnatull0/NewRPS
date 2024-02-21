@@ -3,19 +3,27 @@ using UnityEngine;
 public class MenuManager : MonoBehaviour
 {
 
+    private void Start()
+    {
+        GameModeStateManager.ChangeState(GameModeState.Menu);
+    }
+
     public void OnClick_RegularMode()
     {
-        GameStateManager.ChangeState(GameState.RegularMode);
+        GameModeStateManager.ChangeState(GameModeState.RegularMode);
+        LogicStateManager.ChangeLogicState(LogicState.WaitingToStart);
     }
 
     public void OnClick_ChallengeMode()
     {
-        GameStateManager.ChangeState(GameState.ChallengeMode);
+        GameModeStateManager.ChangeState(GameModeState.ChallengeMode);
+        LogicStateManager.ChangeLogicState(LogicState.WaitingToStart);
     }
 
     public void OnClick_Back()
     {
-        GameStateManager.ChangeState(GameState.Menu);
+        GameModeStateManager.ChangeState(GameModeState.Menu);
+        LogicStateManager.ChangeLogicState(LogicState.Default);
     }
 
 }

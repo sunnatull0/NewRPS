@@ -4,27 +4,44 @@ using UnityEngine;
 
 public static class UIManager
 {
-    
-    private static GameObject _menuUI = ReferenceManager.Instance.MenuUI;
-    private static GameObject _regularModeUI = ReferenceManager.Instance.RegularModeUI;
-    private static GameObject _challengeModeUI = ReferenceManager.Instance.ChallengeModeUI;
 
-    
+    private static GameObject _menuUI;
+    private static GameObject _regularModeUI;
+    private static GameObject _challengeModeUI;
+
+    private static bool _isInitialized = false;
+
+    private static void Init()
+    {
+        _menuUI = ReferenceManager.Instance.MenuUI;
+        _regularModeUI = ReferenceManager.Instance.RegularModeUI;
+        _challengeModeUI = ReferenceManager.Instance.ChallengeModeUI;
+        _isInitialized = true;
+        Debug.Log("UI initialized!");
+    }
+
+
     public static void SwitchToMenu()
     {
+        if(!_isInitialized) Init();
+
         Disable(_regularModeUI);
         Disable(_challengeModeUI);
         Enable(_menuUI);
     }
-    
+
     public static void SwitchToRegularMode()
     {
+        if(!_isInitialized) Init();
+
         Disable(_menuUI);
         Enable(_regularModeUI);
     }
 
     public static void SwitchToChallengeMode()
     {
+        if(!_isInitialized) Init();
+
         Disable(_menuUI);
         Enable(_challengeModeUI);
     }

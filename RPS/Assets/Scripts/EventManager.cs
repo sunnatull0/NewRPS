@@ -4,8 +4,13 @@ public static class EventManager
 {
 
     public static Action 
-                        OnStateChangedToRegularMode, 
-                        OnStateChangedToChallengeMode, 
-                        OnStateChangedToMenu;
+                        OnGameModeStateChangedToMenu,
+                        OnGameModeStateChangedToRegularMode,
+                        OnLogicStateChangedToDefault,
+                        OnLogicStateChangedToWaitingToStart,
+                        OnLogicStateChangedToPlaying,
+                        OnLogicStateChangedToWon,
+                        OnLogicStateChangedToLost,
+                        OnGameModeStateChangedToChallengeMode;
                         
 }
